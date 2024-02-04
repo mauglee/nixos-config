@@ -61,6 +61,9 @@ in
       enable = true;
       userName = "Maug Lee";
       userEmail = "mauglee@gmail.com";
+      extraConfig = {
+        pull.rebase = false;
+      };
     };
     micro = {
       enable = true;
