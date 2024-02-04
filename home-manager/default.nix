@@ -29,6 +29,7 @@ in
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
       jetbrains.phpstorm
       libreoffice telegram-desktop
+      meld # visual diff and merge tool
     ];
     
     # Example of dotfile
