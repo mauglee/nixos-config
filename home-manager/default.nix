@@ -22,7 +22,7 @@ in
       # non-GUI
       bat btop cleanup git file lsd neofetch nerdfonts tree wl-clipboard
       pkgs.${systemSettings.defaultEditor}
-      zip unzip
+      ripgrep zip unzip
 
       # GUI
       brave gnome.dconf-editor
