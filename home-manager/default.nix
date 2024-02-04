@@ -30,6 +30,7 @@ in
       jetbrains.phpstorm
       libreoffice telegram-desktop
       meld # visual diff and merge tool
+      yt-dlp
     ];
     
     # Example of dotfile
