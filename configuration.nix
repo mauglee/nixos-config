@@ -101,6 +101,12 @@
   # };
 
   # List services that you want to enable:
+  services.locate = {
+    enable = true;
+    package = pkgs.plocate;
+    interval = "never"; # run `updatedb` manually
+    localuser = null; # mlocate and plocate do not support the services.locate.localuser option. updatedb will run as root
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

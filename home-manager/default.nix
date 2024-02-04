@@ -27,6 +27,7 @@ in
       # GUI
       brave gnome.dconf-editor
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
+      jetbrains.phpstorm
       libreoffice telegram-desktop
     ];
     
