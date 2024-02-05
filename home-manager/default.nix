@@ -66,7 +66,7 @@ in
 
         merge.tool = "meld";
         mergetool.meld = {
-          cmd = "meld";
+          cmd = "meld $LOCAL $REMOTE $BASE $MERGED";
           path = "${pkgs.meld}/bin/meld";
           trustExitCode = true;
           hasOutput = true; # tells Git to skip checking whether meld supports --output (older versions of meld do not support)
@@ -76,7 +76,7 @@ in
         
         diff.tool = "meld";
         difftool.meld = {
-          cmd = "meld";
+          cmd = "meld $LOCAL $REMOTE";
           path = "${pkgs.meld}/bin/meld";
           trustExitCode = true;
         };
