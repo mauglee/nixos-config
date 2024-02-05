@@ -63,6 +63,24 @@ in
       userEmail = "mauglee@gmail.com";
       extraConfig = {
         pull.rebase = false;
+
+        merge.tool = "meld";
+        mergetool.meld = {
+          cmd = "meld";
+          path = "${pkgs.meld}/bin/meld";
+          trustExitCode = true;
+          hasOutput = true; # tells Git to skip checking whether meld supports --output (older versions of meld do not support)
+        };
+        mergetool.prompt = false;
+        mergetool.keepBackup = false;
+        
+        diff.tool = "meld";
+        difftool.meld = {
+          cmd = "meld";
+          path = "${pkgs.meld}/bin/meld";
+          trustExitCode = true;
+        };
+        difftool.prompt = false;
       };
     };
     micro = {
