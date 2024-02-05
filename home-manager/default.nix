@@ -27,7 +27,7 @@ in
       # GUI
       brave gnome.dconf-editor
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
-      jetbrains.phpstorm
+      (jetbrains.plugins.addPlugins jetbrains.phpstorm [ "symfony-support" "php-annotations" "nixidea" ]) # this installs jetbrains.phpstorm with plugins
       libreoffice telegram-desktop
       meld # visual diff and merge tool
       yt-dlp
