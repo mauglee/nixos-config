@@ -1,5 +1,4 @@
 # NixOS config
-Some usage memo
 
 ## Get project
 ```
