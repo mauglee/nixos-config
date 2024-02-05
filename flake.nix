@@ -20,8 +20,8 @@
         probook = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-          	inherit identity;
-          	inherit systemSettings;
+            inherit identity;
+            inherit systemSettings;
           };
           modules = [
             ./configuration.nix
@@ -31,15 +31,15 @@
                 useUserPackages = true;
                 users.${identity.username} = import ./home-manager;
                 extraSpecialArgs = {
-                	inherit identity;
-                	inherit systemSettings;
+                  inherit identity;
+                  inherit systemSettings;
                 };
               };
             }
             {
-            	environment.variables = {
-            		EDITOR = systemSettings.defaultEditor;
-            	};
+              environment.variables = {
+                EDITOR = systemSettings.defaultEditor;
+              };
             }
           ];
         };

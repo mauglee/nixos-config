@@ -45,7 +45,7 @@
 
   # exclude some default packages from Gnome
   environment.gnome.excludePackages = with pkgs; [
-  	gnome.geary epiphany xterm
+    gnome.geary epiphany xterm
   ];
 
   # Configure console keymap
