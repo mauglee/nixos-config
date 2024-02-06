@@ -16,21 +16,37 @@ cd nixos-config
 ## Generate hardware configuration
 `nixos-generate-config --show-hardware-config > hardware-configuration.nix`
 
+## Shortcuts
+* `<Control>Print` screenshot program `ksnip`
+* `<Control><Alt>t` console `kgx`
+
+## Scripts (only essential parts shown)
+```
+$ bat `which cleanup`
+sudo /run/current-system/bin/switch-to-configuration boot
+sudo nix-collect-garbage -d
+```
+
+## Aliases
+```
+alias ..='cd ..'
+alias l='lsd'
+alias la='lsd -lah'
+alias ll='ls -l'
+alias lmd='litemdview -t 1'
+alias ls='ls --color=tty'
+alias m='micro'
+alias rebuild='sudo nixos-rebuild switch --flake .'
+```
+
 ## Other
 ### Generate config
 `sudo nixos-generate-config` writes two NixOS configuration modules:
 - `/etc/nixos/hardware-configuration.nix` – if this file already exists, it is *overwritten*
 - `/etc/nixos/configuration.nix` – if it already exists, it’s left *unchanged*
 
-## Scripts, aliases
-`<Control>Print` starts `shutter` program (screenshot)
-```
-$ alias
-alias ..='cd ..'
-alias l='lsd'
-alias la='lsd -lah'
-alias ll='ls -l'
-alias ls='ls --color=tty'
-alias m='micro'
-alias rebuild='sudo nixos-rebuild switch --flake .'
-```
+### Markdown
+`.md` file view'er is `litemdview`
+
+### Git
+Merge and diff tool is `meld`

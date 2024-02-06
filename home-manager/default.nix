@@ -28,9 +28,11 @@ in
       brave gnome.dconf-editor
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
       (jetbrains.plugins.addPlugins jetbrains.phpstorm [ "symfony-support" "php-annotations" "nixidea" ]) # this installs jetbrains.phpstorm with plugins
-      libreoffice sqlitebrowser telegram-desktop
+      libreoffice
+      litemdview # Suckless markdown viewer
+      sqlitebrowser telegram-desktop
       meld # visual diff and merge tool
-      shutter
+      ksnip
       yt-dlp
     ];
     
@@ -47,6 +49,7 @@ in
         ".." = "cd ..";
         l = "lsd";
         la = "lsd -lah";
+        lmd = "litemdview -t 1";
         m = "micro";
         rebuild = "sudo nixos-rebuild switch --flake .";
       };
@@ -117,8 +120,8 @@ in
         binding = "<Control><Alt>t";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        name = "Screenshot (shutter)";
-        command = "shutter";
+        name = "Screenshot (ksnip)";
+        command = "ksnip";
         binding = "<Control>Print";
       };
       "org/gnome/shell" = {
