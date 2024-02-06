@@ -17,7 +17,7 @@ cd nixos-config
 `nixos-generate-config --show-hardware-config > hardware-configuration.nix`
 
 ## Shortcuts
-* `<Control>Print` screenshot program `ksnip`
+* `<Control>Print` screenshot program [not set at the moment]
 * `<Control><Alt>t` console `kgx`
 
 ## Scripts (only essential parts shown)

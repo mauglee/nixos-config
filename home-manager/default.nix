@@ -32,7 +32,6 @@ in
       litemdview # Suckless markdown viewer
       sqlitebrowser telegram-desktop
       meld # visual diff and merge tool
-      ksnip
       yt-dlp
     ];
     
@@ -119,11 +118,13 @@ in
         command = "kgx";
         binding = "<Control><Alt>t";
       };
+      /*
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         name = "Screenshot (ksnip)";
         command = "ksnip";
         binding = "<Control>Print";
       };
+      */
       "org/gnome/shell" = {
         disable-user-extensions = false;
         disabled-extensions = [
