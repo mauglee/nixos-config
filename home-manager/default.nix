@@ -28,8 +28,9 @@ in
       brave gnome.dconf-editor
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
       (jetbrains.plugins.addPlugins jetbrains.phpstorm [ "symfony-support" "php-annotations" "nixidea" ]) # this installs jetbrains.phpstorm with plugins
-      libreoffice telegram-desktop
+      libreoffice sqlitebrowser telegram-desktop
       meld # visual diff and merge tool
+      shutter
       yt-dlp
     ];
     
@@ -107,12 +108,18 @@ in
         home = [ "<Super>e" ];
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Console";
         command = "kgx";
         binding = "<Control><Alt>t";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        name = "Screenshot (shutter)";
+        command = "shutter";
+        binding = "<Control>Print";
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
