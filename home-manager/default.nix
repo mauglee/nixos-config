@@ -47,6 +47,7 @@ in
   };
   programs = {
     home-manager.enable = true;
+
     bash = {
       enable = true;
       shellAliases = {
@@ -58,6 +59,7 @@ in
         rebuild = "sudo nixos-rebuild switch --flake .";
       };
     };
+
     btop = {
       enable = true;
       settings = {
@@ -65,6 +67,7 @@ in
         proc_sorting = "memory";
       };
     };
+
     git = {
       enable = true;
       userName = "Maug Lee";
@@ -91,6 +94,7 @@ in
         difftool.prompt = false;
       };
     };
+    
     micro = {
       enable = true;
       settings = {
@@ -105,6 +109,7 @@ in
       };
     };
   };
+
   dconf = {
     enable = true;
     settings = {
