@@ -12,6 +12,11 @@ let
   sudo nix-collect-garbage -d
   echo "Should be clean now" | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat
   '';
+  phpStormWithPlugins = pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.phpstorm [
+    "symfony-support"
+    "php-annotations"
+    "nixidea"
+  ];
 in
 {
   home = {
@@ -27,10 +32,10 @@ in
       # GUI
       brave gnome.dconf-editor
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
-      (jetbrains.plugins.addPlugins jetbrains.phpstorm [ "symfony-support" "php-annotations" "nixidea" ]) # this installs jetbrains.phpstorm with plugins
       libreoffice
       litemdview # Suckless markdown viewer
-      sqlitebrowser telegram-desktop
+      phpStormWithPlugins
+      sqlitebrowser telegram-desktop tor-browser
       meld # visual diff and merge tool
       yt-dlp
     ];
@@ -118,13 +123,6 @@ in
         command = "kgx";
         binding = "<Control><Alt>t";
       };
-      /*
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        name = "Screenshot (ksnip)";
-        command = "ksnip";
-        binding = "<Control>Print";
-      };
-      */
       "org/gnome/shell" = {
         disable-user-extensions = false;
         disabled-extensions = [
