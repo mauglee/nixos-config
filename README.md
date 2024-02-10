@@ -1,5 +1,11 @@
 # NixOS config
 
+```
+sudo nano /etx/nixos/configuration.nix
+```
+Add `nix.settings.experimental-features = [ "nix-command" "flakes" ];`
+Add `git` to packages
+
 ## Get project
 ```
 cd ~/projects
