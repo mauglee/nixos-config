@@ -13,7 +13,7 @@
   boot.loader.grub.useOSProber = true;
 
   # hostname is used in another cofigurations
-  networking.hostName = "probook";
+  networking.hostName = "virtunix";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
