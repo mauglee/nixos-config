@@ -57,6 +57,8 @@ in
         lmd = "litemdview -t 1";
         m = "micro";
         rebuild = "sudo nixos-rebuild switch --flake .";
+        gs = "git status";
+        gc = "git commit -a";
       };
     };
 
