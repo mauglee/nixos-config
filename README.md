@@ -9,7 +9,7 @@ Set `networking.hostName = "probook";`
 ```
 sudo nixos-rebuild switch
 ```
-Reboot (?) to ensure hostname changed
+Log-out and log-in to observe new hostname
 
 ## Get project
 ```
