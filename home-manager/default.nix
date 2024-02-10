@@ -30,7 +30,7 @@ in
       ripgrep zip unzip
 
       # GUI
-      brave gnome.dconf-editor
+      brave gnome.dconf-editor gnome.gnome-session
       gnomeExtensions.appindicator # also is enabled in dconf settings bellow
       libreoffice
       litemdview # Suckless markdown viewer
