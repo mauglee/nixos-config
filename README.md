@@ -5,12 +5,18 @@ sudo nano /etx/nixos/configuration.nix
 ```
 Add `nix.settings.experimental-features = [ "nix-command" "flakes" ];`
 Add `git` to packages
+Set `networking.hostName = "probook";`
+```
+sudo nixos-rebuild switch
+```
+Reboot (?) to ensure hostname changed
 
 ## Get project
 ```
 cd ~/projects
 git clone git@github.com:mauglee/nixos-config.git
 cd nixos-config
+cp /etc/nixos/hardware-configuration.nix .
 ```
 
 ## Update packages
