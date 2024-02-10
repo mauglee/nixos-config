@@ -17,6 +17,32 @@
     in
     {
       nixosConfigurations = {
+        virtunix = inputs.nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit identity;
+            inherit systemSettings;
+          };
+          modules = [
+            ./hosts/virtunix/configuration.nix
+            inputs.homeManager.nixosModules.home-manager {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${identity.username} = import ./home-manager;
+                extraSpecialArgs = {
+                  inherit identity;
+                  inherit systemSettings;
+                };
+              };
+            }
+            {
+              environment.variables = {
+                EDITOR = systemSettings.defaultEditor;
+              };
+            }
+          ];
+        };
         probook = inputs.nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
@@ -24,7 +50,7 @@
             inherit systemSettings;
           };
           modules = [
-            ./configuration.nix
+            ./hosts/probook/configuration.nix
             inputs.homeManager.nixosModules.home-manager {
               home-manager = {
                 useGlobalPkgs = true;
