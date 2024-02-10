@@ -25,7 +25,7 @@ in
     keyboard = null; # managed in configuration.nix
     packages = with pkgs; [
       # non-GUI
-      bat btop cleanup git file lsd neofetch nerdfonts tree wl-clipboard
+      bat bruno btop cleanup git file lsd neofetch nerdfonts tree wl-clipboard
       pkgs.${systemSettings.defaultEditor}
       ripgrep zip unzip
 
