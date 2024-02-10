@@ -124,6 +124,11 @@ in
         ];
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        name = "Power off";
+        command = "gnome-session-quit --power-off";
+        binding = "<Super>x";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         name = "Console";
         command = "kgx";
         binding = "<Control><Alt>t";
