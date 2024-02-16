@@ -45,11 +45,9 @@
           inherit system specialArgs;
           modules = [ ./hosts/${hostname}/configuration.nix ] ++ commonModules;
       };
+      nixosConfigurations = inputs.nixpkgs.lib.genAttrs systemSettings.hostnames ( hostname: makeSystem hostname );
     in
     {
-      nixosConfigurations = {
-        virtunix = makeSystem "virtunix";
-        probook = makeSystem "probook";
-      };
+      inherit nixosConfigurations;
     };
 }
