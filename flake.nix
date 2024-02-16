@@ -23,6 +23,7 @@
         inherit identity systemSettings;
       };
       commonModules = [
+        ./configuration-common.nix
         inputs.agenix.nixosModules.default
         { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
         inputs.homeManager.nixosModules.home-manager {
@@ -43,7 +44,9 @@
       ];
       makeSystem = hostname: inputs.nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
-          modules = [ ./hosts/${hostname}/configuration.nix ] ++ commonModules;
+          modules = [
+            ./hosts/${hostname}/configuration.nix
+          ] ++ commonModules;
       };
       nixosConfigurations = inputs.nixpkgs.lib.genAttrs systemSettings.hostnames ( hostname: makeSystem hostname );
     in
