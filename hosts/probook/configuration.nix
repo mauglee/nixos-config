@@ -111,6 +111,7 @@
     interval = "never"; # run `sudo updatedb` manually
     localuser = null; # mlocate and plocate do not support the services.locate.localuser option. updatedb will run as root
   };
+  services.logind.lidSwitch = "ignore";
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
