@@ -45,12 +45,11 @@
           inherit system specialArgs;
           modules = [ ./hosts/${hostname}/configuration.nix ] ++ commonModules;
       };
-      virtunix = makeSystem "virtunix";
-      probook = makeSystem "probook";
     in
     {
       nixosConfigurations = {
-        inherit virtunix probook;
+        virtunix = makeSystem "virtunix";
+        probook = makeSystem "probook";
       };
     };
 }
