@@ -115,8 +115,23 @@ in
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/peripherals/touchpad" = {
+        natural-scroll = false;
+        tap-to-click = true;
+        two-finger-scrolling-enabled = true;
+      };
+      "org/gnome/desktop/search-providers" = {
+        disabled = [ "org.gnome.Contacts.desktop" "org.gnome.Characters.desktop" ];
+      };
       "org/gnome/desktop/wm/preferences" = {
         resize-with-right-button = true;
+      };
+      "org/gnome/nautilus/list-view" = {
+        default-zoom-level = "small";
+      };
+      "org/gnome/nautilus/preferences" = {
+        default-folder-viewer = "list-view";
+        search-filter-time-type = "last_modified";
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
         home = [ "<Super>e" ];
@@ -134,6 +149,10 @@ in
         name = "Console";
         command = "kgx";
         binding = "<Control><Alt>t";
+      };
+      "org/gnome/settings-daemon/plugins/power" = {
+        sleep-inactive-ac-type = "nothing";
+        sleep-inactive-battery-type = "nothing";
       };
       "org/gnome/shell" = {
         disable-user-extensions = false;
