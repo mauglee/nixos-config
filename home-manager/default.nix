@@ -8,8 +8,8 @@ let
       [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1
   fi
   
-  sudo /run/current-system/bin/switch-to-configuration boot
   sudo nix-collect-garbage -d
+  sudo /run/current-system/bin/switch-to-configuration boot
   echo "Should be clean now" | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat
   '';
   phpStormWithPlugins = pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.phpstorm [
