@@ -7,6 +7,11 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "";
+    };
   };
 
   outputs = inputs:
@@ -25,6 +30,8 @@
           };
           modules = [
             ./hosts/virtunix/configuration.nix
+            inputs.agenix.nixosModules.default
+            { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
             inputs.homeManager.nixosModules.home-manager {
               home-manager = {
                 useGlobalPkgs = true;
@@ -51,6 +58,8 @@
           };
           modules = [
             ./hosts/probook/configuration.nix
+            inputs.agenix.nixosModules.default
+            { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
             inputs.homeManager.nixosModules.home-manager {
               home-manager = {
                 useGlobalPkgs = true;
