@@ -19,65 +19,38 @@
       identity = import ./identity;
       systemSettings = import ./system-settings;
       system = systemSettings.system;
+      specialArgs = {
+        inherit identity systemSettings;
+      };
+      commonModules = [
+        inputs.agenix.nixosModules.default
+        { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
+        inputs.homeManager.nixosModules.home-manager {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${identity.username} = import ./home-manager;
+            extraSpecialArgs = {
+              inherit identity systemSettings;
+            };
+          };
+        }
+        {
+          environment.variables = {
+            EDITOR = systemSettings.defaultEditor;
+          };
+        }
+      ];
+      makeSystem = hostname: inputs.nixpkgs.lib.nixosSystem {
+          inherit system specialArgs;
+          modules = [ ./hosts/${hostname}/configuration.nix ] ++ commonModules;
+      };
+      virtunix = makeSystem "virtunix";
+      probook = makeSystem "probook";
     in
     {
       nixosConfigurations = {
-        virtunix = inputs.nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit identity;
-            inherit systemSettings;
-          };
-          modules = [
-            ./hosts/virtunix/configuration.nix
-            inputs.agenix.nixosModules.default
-            { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
-            inputs.homeManager.nixosModules.home-manager {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${identity.username} = import ./home-manager;
-                extraSpecialArgs = {
-                  inherit identity;
-                  inherit systemSettings;
-                };
-              };
-            }
-            {
-              environment.variables = {
-                EDITOR = systemSettings.defaultEditor;
-              };
-            }
-          ];
-        };
-        probook = inputs.nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit identity;
-            inherit systemSettings;
-          };
-          modules = [
-            ./hosts/probook/configuration.nix
-            inputs.agenix.nixosModules.default
-            { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
-            inputs.homeManager.nixosModules.home-manager {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                users.${identity.username} = import ./home-manager;
-                extraSpecialArgs = {
-                  inherit identity;
-                  inherit systemSettings;
-                };
-              };
-            }
-            {
-              environment.variables = {
-                EDITOR = systemSettings.defaultEditor;
-              };
-            }
-          ];
-        };
+        inherit virtunix probook;
       };
     };
 }
