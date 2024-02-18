@@ -93,6 +93,9 @@
     };
   };
 
+  # agenix
+  age.secrets.foo.file = ./secrets.foo.age;
+
   # Disable GNOMEs power management
   services.power-profiles-daemon.enable = false;
 
