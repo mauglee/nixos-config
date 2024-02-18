@@ -48,7 +48,8 @@
             ./hosts/${hostname}/configuration.nix
           ] ++ commonModules;
       };
-      nixosConfigurations = inputs.nixpkgs.lib.genAttrs systemSettings.hostnames ( hostname: makeSystem hostname );
+      hostnames = builtins.attrNames (inputs.nixpkgs.lib.filterAttrs (name: value: value == "directory") (builtins.readDir ./hosts));
+      nixosConfigurations = inputs.nixpkgs.lib.genAttrs hostnames ( hostname: makeSystem hostname );
     in
     {
       inherit nixosConfigurations;
