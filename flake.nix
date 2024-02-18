@@ -24,8 +24,8 @@
       };
       commonModules = [
         ./configuration-common.nix
-        inputs.agenix.nixosModules.default
-        { environment.systemPackages = [ inputs.agenix.packages.${system}.default ]; }
+        inputs.agenix.nixosModules.age
+        { environment.systemPackages = [ inputs.agenix.packages."${system}".default ]; }
         inputs.homeManager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;

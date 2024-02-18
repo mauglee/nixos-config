@@ -42,7 +42,6 @@ in
     
     # Example of dotfile
     #file.".config/foo/bar.conf".source = ./foo.conf;
-    file.".config/foo/bar.conf".text = "${config.age.secrets.foo.path}";
 
     stateVersion = "23.11";
   };

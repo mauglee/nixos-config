@@ -94,7 +94,13 @@
   };
 
   # agenix
-  age.secrets.foo.file = ./secrets.foo.age;
+  age = {
+    secrets = {
+      # test1.file = /path/to/secrets/test1.age;
+      # test2.file = /path/to/secrets/test2.age;
+    };
+    identityPaths = [ "${identity.homeDirectory}/.ssh/id_rsa" ];
+  };
 
   # Disable GNOMEs power management
   services.power-profiles-daemon.enable = false;

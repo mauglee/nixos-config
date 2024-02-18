@@ -12,5 +12,4 @@
 
   # hostname is used in another cofigurations
   networking.hostName = "virtunix";
-
 }
